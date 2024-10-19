@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .chat-container {
+            height: 95vh; /* Set chat container to 100% viewport height */
+            display: flex;
+            flex-direction: column; /* Make it a column layout */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            background-color: #d9878757; 
+            background-image: linear-gradient(to bottom, #92e6ed, #a7ece7);/* Set the background color of the chat container */
+            position: relative;
+            border-width: 50px;
+        }
+
+        
+        .chat-box {
+            flex-grow: 1; /* Grow to fill available space */
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-image: linear-gradient(to bottom, #c5e1d6, #a6e9eb);
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 5px; /* Add padding at the top */
+            padding-bottom: 5px; /* Add padding at the bottom */
+            background-color: #baf8ee;/* Set the background color of the input container */
+            margin-top: 10px; /* Add spacing between chat and input containers */
+            border-radius: 50px;    
+        }
+
+        .character {
+            width: 60px; /* Set a fixed width */
+            height: 60px; /* Set a fixed height to match the width */
+            margin-right: 10px; /* Add spacing between character image and message */
+            border-radius: 50%; /* Make character images round */
+        }
+
+        .bot-message {
+            background-color: #f6faf9ea; /* Bot's message background color */
+            border-radius: 50px; /* Adjust the border-radius as needed */
+            padding: 10px;
+            font-size: 25px;
+            margin-left: auto; /* Push bot's message to the right */
+            font-family: 'Courier New', monospace; /* Change the font family */
+            display: inline-block; /* Make the message box inline-block */
+            font-weight: bold;
+        }
+
+        .user-message {
+             /* User's message background color */
+            border-radius: 50px; /* Adjust the border-radius as needed */
+            padding: 10px;
+            font-size: 25px;
+            margin-left: auto; /* Push user's message to the right */
+            font-family: 'Courier New', monospace; /* Change the font family */
+            background-color: #cbc4b6;
+            display: inline-block; /* Make the message box inline-block */
+        }
+
+
+
+        .sidebar {
+            display: flex;
+            align-items: center;
+            width: 1160px; 
+            background-color: #555350;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0px 5px rgba(6, 6, 6, 0.2);
+        }
+
+        .sidebar img {
+            width: 100px; /* Adjust the width of the logo image */
+            height: 100px; /* Adjust the height of the logo image */
+            border-radius: 50%; /* Make it round */
+            margin-right: 10px;  /* Add spacing below the photo */
+        }
+
+        .sidebar-text {
+            flex-grow: 2; /* Allow the text to expand and fill the available space */
+        }
+
+        /* Style the main heading */
+        .sidebar-text h1 {
+            font-size: 2rem; /* Adjust the font size as needed */
+            margin: 0; /* Remove margin for spacing */
+            margin-left: 30px;
+            color: #ffe9ba; 
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Style the subheading */
+        .sidebar-text h2 {
+            font-size: 1rem; /* Adjust the font size as needed */
+            margin: 0;
+            margin-left: 130px; 
+            font-family: 'Courier New', monospace;
+        }    
+
+        /* Style the additional links */
+        .additional-links {
+            display: flex;
+            flex-direction: row; /* Display links in a row */
+            justify-content: center; /* Center-align links horizontally */
+            align-items: center; /* Center-align links vertically */
+        }
+
+        .additional-links a {
+            color: #59c8dc;
+            text-decoration: none;
+            margin: 0 40px; /* Add spacing between links horizontally */
+            transition: text-decoration 0.3s ease; /* Add transition for smooth underline effect */
+        }
+
+        /* Underline links on hover */
+        .additional-links a:hover {
+            text-decoration: underline;
+        }
+
+        .bot-image {
+            /* Add your styling properties here */
+            max-width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Add more styling as needed */
+        }
+
+/* Rest of your CSS remains unchanged */
+        .payload-button-container {
+            text-align: center; /* Center-align the buttons within the container */
+            white-space: nowrap; /* Center-align the buttons within the container */
+        }
+
+        .payload-button {
+            display: inline-block; /* Display buttons in the same line */
+            width: 270px; /* Set a fixed width for all buttons */
+            height: 70px; /* Set a fixed height for all buttons */
+            border: 1px solid #b7b4b4;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            text-align: center;
+            background-color: transparent;
+            color: #181818; /* Change the text color */
+            font-family: 'Courier New', monospace; 
+        }
+
+        /* Hover effect for payload buttons */
+        .payload-button:hover {
+            background-color: #bab7b7;
+        }
+
+        #payloadButtonsContainer {
+            position: absolute;
+            bottom: 80px; /* Adjust the distance from the bottom */
+            right: -44%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+        }
+
+
+
+        #userInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #f4ebeb;
+            border-radius: 80px;
+            outline: none;
+            box-shadow: #f0f0f0;
+            font-size: 20px; /* Increase font size */
+        }
+        #sendMessage, #startListening, #muteButton {
+            background-color: #555350;
+            color: #ffe9ba;
+            border: none;
+            border-radius: 80px;
+            padding: 10px 10px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        #muteButton.muted {
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar within the chat container -->
+        <div class="sidebar">
+            <!-- Add sidebar content here -->
+            <img src="logo_final.png" alt="Sidebar Photo">
+            <div class="sidebar-text">
+                <h1><strong>Shri Devi Chatbot</strong></h1>
+                <h2><strong>A Virtual Guide of shri devi</strong></h2>
+            </div>
+            <div class="additional-links">
+                <a href="new_bot.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="developers.html">Developers</a>
+            </div>
+            <div id="payloadButtonsContainer" style="display: none;">
+                <button class="payload-button" data-payload="Hi">Hi</button>
+                <button class="payload-button" data-payload="what is the fee structure in shri devi college  ?">what is the fee structure in shri devi college   ?</button>
+                <button class="payload-button" data-payload="what is the adress of shri devi college?">what is the adress of shri devi college ?</button>
+                <button class="payload-button" data-payload="what are the highest package of shri devi college?">what are the highest package of shri devi college ?</button>
+            </div>
+        </div>
+        <div class="chat-box" id="chatBox">
+        </div>
+        <div class="input-container">
+            <button id="startListening" class="fas fa-microphone"></button>
+            <input type="text" id="userInput" placeholder="Type a message..." onkeydown="handleKeyPress(event)">
+            <button id="sendMessage">&#10148;</button>
+            <button id="muteButton">&#128266;</button> <!-- Move the Mute button here -->
+            
+        </div>
+        </div>
+        <script>
+            // Your JavaScript code remains the same
+            // ...
+            const chatBox = document.getElementById('chatBox');
+            const userInput = document.getElementById('userInput');
+            const sendMessageButton = document.getElementById('sendMessage');
+            const startListeningButton = document.getElementById('startListening');
+            const muteButton = document.getElementById('muteButton');
+        
+            let isMuted = false;
+            let speechSynthesisUtterance = null;
+          // Function to add a message to the chat box
+        // Function to add a message to the chat box
+        function addMessage(message, sender) {
+    // Replace '\n' with '<br>' for line breaks
+    message = message.replace(/\n/g, '<br>');
+
+    const messageContainer = document.createElement('div'); // Define messageContainer here
+    messageContainer.classList.add('message-container'); // Add a container for styling
+
+    const characterImage = document.createElement('img');
+    characterImage.classList.add('character'); // Add class for styling
+
+    if (sender === 'You') {
+        characterImage.src = 'IMG_20230905_200738.jpg'; // Replace with your user image URL
+        characterImage.alt = 'You';
+        messageContainer.appendChild(characterImage);
+
+        const userMessageText = document.createElement('div');
+        userMessageText.innerHTML = message;
+        userMessageText.classList.add('user-message'); // Use the user message class
+        messageContainer.appendChild(userMessageText);
+    } 
+    else if (sender === 'Bot') {
+        characterImage.src = 'logo_final.png';
+        characterImage.alt = 'Bot';
+        messageContainer.appendChild(characterImage);
+
+        // Check if the response includes an image URL
+        const imageUrlMatch = message.match(/IMG_URL:\s*(\S+)/);
+
+        if (imageUrlMatch) {
+            const imageUrl = imageUrlMatch[1];
+
+            // Create and append the bot image
+            const botImage = document.createElement('img');
+            botImage.src = imageUrl;
+            botImage.classList.add('bot-image'); // Add a class for styling
+            messageContainer.appendChild(botImage);
+        }
+
+        // Extract the text (either the entire message or text after the image URL)
+        const textToDisplay = imageUrlMatch
+            ? message.substring(imageUrlMatch[0].length)
+            : message;
+
+        // Create and append the bot message text
+        const botMessageText = document.createElement('div');
+        botMessageText.innerHTML = textToDisplay;
+        botMessageText.classList.add('bot-message'); // Use the bot message class
+        messageContainer.appendChild(botMessageText);
+    }
+    else {
+        characterImage.src = 'IMG_20230905_200738.jpg'; // Replace with your voice image URL
+        characterImage.alt = 'You (Voice)';
+        messageContainer.appendChild(characterImage);
+
+        const userVoiceMessageText = document.createElement('div');
+        userVoiceMessageText.innerHTML = message;
+        userVoiceMessageText.classList.add('user-message'); // Use the user message class
+        messageContainer.appendChild(userVoiceMessageText);
+    }
+
+    messageContainer.style.marginBottom = '30px';
+
+    chatBox.appendChild(messageContainer);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // If sender is 'Bot', read the response aloud unless muted
+    if (sender === 'Bot' && !isMuted) {
+        readResponseAloud(message);
+    }
+}
+
+        // Event listener for sending a message
+        sendMessageButton.addEventListener('click', () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim() !== '') {
+                addMessage(userMessage, 'You');
+                userInput.value = '';
+                hidePayloadButtons();
+                // Send user message to the Rasa chatbot API
+                rasaAPI('user', userMessage);
+            }
+        });
+
+        // Speech recognition for the microphone button
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onresult = function(event) {
+                const result = event.results[0][0].transcript;
+                addMessage(result, 'You (Voice)');
+                hidePayloadButtons();
+
+                // Send voice message to the Rasa chatbot API
+                rasaAPI('user', result);
+            };
+
+            startListeningButton.addEventListener('click', () => {
+                recognition.start();
+            });
+        } else {
+            startListeningButton.disabled = true;
+        }
+
+        // Function to send the user message to the Rasa chatbot API
+        async function rasaAPI(name, msg) {
+    try {
+        const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'charset': 'UTF-8',
+            },
+            credentials: "same-origin",
+            body: JSON.stringify({ "sender": name, "message": msg }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send message to Rasa chatbot.');
+        }
+
+        const responseData = await response.json();
+        if (responseData && responseData.length > 0) {
+            const botResponse = responseData[0];
+
+            if (botResponse.image) {
+                const imageUrlMatch = botResponse.image.match(/IMG_URL:\s*(\S+)/);
+                if (imageUrlMatch) {
+                    const imageUrl = imageUrlMatch[1];
+                    addMessage(botResponse.text, 'Bot');
+                    addMessage('IMG_URL: ' + imageUrl, 'Bot'); // Add the image to the chat
+                }
+            } else if (botResponse.text) {
+                addMessage(botResponse.text, 'Bot');
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+
+
+        // Function to read text aloud using Web Speech API
+        // Function to read text aloud using Web Speech API
+        // Function to read text aloud using Web Speech API
+        function readResponseAloud(text) {
+            if (speechSynthesisUtterance) {
+                // Remove URLs from the text
+                const filteredText = text.replace(/(IMG_URL: http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/gi, ''); // Remove image URLs
+
+                // Check if there's any text left to read aloud
+                const trimmedText = filteredText.trim();
+                if (trimmedText.length > 0) {
+                    speechSynthesisUtterance.text = trimmedText;
+                    window.speechSynthesis.speak(speechSynthesisUtterance);
+                }
+            } else {
+                speechSynthesisUtterance = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(speechSynthesisUtterance);
+                speechSynthesisUtterance.onend = () => {
+                    // Cleanup after speech ends
+                    speechSynthesisUtterance = null;
+                };
+            }
+        }
+
+
+
+
+    function showPayloadButtons() {
+        const payloadButtonsContainer = document.getElementById('payloadButtonsContainer');
+        payloadButtonsContainer.style.display = 'block';
+    }
+
+    // Function to hide payload buttons
+    function hidePayloadButtons() {
+        const payloadButtonsContainer = document.getElementById('payloadButtonsContainer');
+        payloadButtonsContainer.style.display = 'none';
+    }
+
+// Show payload buttons initially
+    showPayloadButtons();
+        // Add this code to your existing JavaScript code
+
+       // Event listener for payload buttons
+       const payloadButtons = document.querySelectorAll('.payload-button');
+        payloadButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const payload = event.target.getAttribute('data-payload');
+                if (payload) {
+                    // Display the payload in the chat as user input
+                    addMessage(payload, 'You');
+
+                    // Send the payload to the Rasa chatbot API
+                    rasaAPI('user', payload);
+
+                    // Hide the payload buttons
+                    hidePayloadButtons();
+                }
+            });
+        });
+
+        // Event listener for sending a message when the "Enter" key is pressed
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                hidePayloadButtons(); // Prevent the Enter key from adding a new line in the input
+                const userMessage = userInput.value;
+                if (userMessage.trim() !== '') {
+                    addMessage(userMessage, 'You');
+                    userInput.value = '';
+
+                    // Send user message to the Rasa chatbot API
+                    rasaAPI('user', userMessage);
+
+                    // Hide the payload buttons when the user sends a message
+                    hidePayloadButtons();
+                }
+            }
+        });
+
+        // Event listener for muting/unmuting the bot's speech
+        muteButton.addEventListener('click', () => {
+            isMuted = !isMuted;
+            if (isMuted) {
+                muteButton.innerHTML = '&#128264;'; // Speaker icon with slash for unmute
+            } else {
+                muteButton.innerHTML = '&#128266;'; // Speaker icon for mute
+            }
+
+            // Stop current speech if muted
+            if (isMuted && speechSynthesisUtterance) {
+                window.speechSynthesis.cancel();
+            }
+        });
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent the Enter key from adding a new line in the input
+                document.getElementById('sendMessage').click(); // Simulate a click on the "Send" button
+                hidePayloadButtons();  
+            }
+        }
+
+    </script>
+</body>
+</html>
