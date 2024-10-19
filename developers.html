@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .chat-container {
+            height: 95vh; /* Set chat container to 100% viewport height */
+            display: flex;
+            flex-direction: column; /* Make it a column layout */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0);
+            background-color: #87d7d9; 
+            background-image: linear-gradient(to bottom, #f8edba, #e1e1e0);/* Set the background color of the chat container */
+            position: relative;
+            border-width: 50px;
+        }
+        .chat-box {
+            flex-grow: 1; /* Grow to fill available space */
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-image: linear-gradient(to bottom, #f8edba, #e1e1e0);
+        }
+
+        .bot-message {
+            background-color: linear-gradient(to bottom, #e1e1e0, #f8edba);
+            /* Bot's message background color */
+            border-radius: 50px; /* Adjust the border-radius as needed */
+            padding: 10px;
+            font-size: 25px;
+            margin-left: auto; /* Push bot's message to the right */
+            font-family: 'Courier New', monospace; /* Change the font family */
+            display: inline-block; /* Make the message box inline-block */
+        }
+
+        .about-message {
+            background-color: linear-gradient(to bottom, #e1e1e0, #f8edba); /* Bot's message background color */
+            border-radius: 50px; /* Adjust the border-radius as needed */
+            padding: 10px;
+            font-size: 25px;
+            font-family: 'Courier New', monospace; /* Change the font family */
+            display: inline-block; /* Make the message box inline-block */
+        }
+        
+
+        .bot-character {
+            width: 60px; /* Set a fixed width */
+            height: 60px; /* Set a fixed height to match the width */
+            margin-right: 10px; /* Add spacing between character image and message */
+            border-radius: 50%; /* Make character images round */
+        }
+
+        .sidebar {
+            display: flex;
+            align-items: center;
+            width: 1160px; 
+            background-color: #555350;
+            color: #fff;
+            padding: 20px;
+            
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar img {
+            width: 100px; /* Adjust the width of the logo image */
+            height: 100px; /* Adjust the height of the logo image */
+            border-radius: 50%; /* Make it round */
+            margin-right: 10px;  /* Add spacing below the photo */
+        }
+
+        .sidebar-text {
+            flex-grow: 2;
+            /* Allow the text to expand and fill the available space */
+        }
+
+        /* Style the main heading */
+        .sidebar-text h1 {
+            font-size: 2rem; /* Adjust the font size as needed */
+            margin: 0; /* Remove margin for spacing */
+            margin-left: 30px;
+            color: #ffe9ba; 
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Style the subheading */
+        .sidebar-text h2 {
+            font-size: 1rem; /* Adjust the font size as needed */
+            margin: 0;
+            margin-left: 130px; 
+            font-family: 'Courier New', monospace;
+        }    
+
+        /* Style the additional links */
+        .additional-links {
+            display: flex;
+            flex-direction: row; /* Display links in a row */
+            justify-content: center; /* Center-align links horizontally */
+            align-items: center; /* Center-align links vertically */
+        }
+
+        .additional-links a {
+            color: #bbae4b;
+            text-decoration: none;
+            margin: 0 40px; /* Add spacing between links horizontally */
+            transition: text-decoration 0.3s ease; /* Add transition for smooth underline effect */
+        }
+
+        /* Underline links on hover */
+        .additional-links a:hover {
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar within the chat container -->
+        <div class="sidebar">
+            <!-- Add sidebar content here -->
+            <img src="logo_final.png" alt="Sidebar Photo">
+            <div class="sidebar-text">
+                <h1><strong>Shri Devi Chatbot</strong></h1>
+                <h2><strong>A Virtual Guide of shri devi <Script></Script></strong></h2>
+            </div>
+            <div class="additional-links">
+                <a href="new_bot.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="developers.html">Developers</a>
+            </div>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <!-- Information as if it were a bot's response -->
+                <img src="logo_final.png" alt="Bot Character" class="bot-character">
+                
+                <!-- Information as if it were bot responses -->
+                <div class="bot-message about-message">
+                    <p> Our chatbot is the result of collaborative efforts between a talented development team and the expert guidance of our esteemed Artificial Intelligence and Data science faculty.</p>
+                    <p><strong>Developed by Heena Khanum</strong><br>
+        <p><strong>I appreciate the guidance of our Artificial Intelligence and Data Science faculty:</strong></p>
+                     Together, they've made our chatbot a reality.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
