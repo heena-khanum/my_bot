@@ -1,0 +1,436 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: shri_devi
+  examples: |
+    - tell about Shri Devi College
+    - Shri Devi College
+    - more about Shri Devi College
+    - details about Shri Devi College
+    - what is Shri Devi College
+    - Shri Devi College
+    - Sri devi college 
+
+- intent: courses_offered
+  examples: |
+    - what are the courses offered in shri devi college
+    - how many courses are offered in shri devi college
+    - what are the courses offered in shri devi college
+    - details about courses in shri devi college
+    - courses of shri devi college
+    - what streams does Shri devi offers
+
+- intent: founder_of
+  examples: |
+    - who is the founder of shri devi college
+    - what is the name of the founder of shri devi college
+    - founder of shri devi college
+    - Can you please provide the name of the founder of Shri Devi College
+    - Do you know who established Shri Devi College
+    - Who was responsible for founding Shri Devi College
+    - Could you share information about the individual or group that started Shri Devi College
+    - Tell me about the visionary behind the establishment of Shri Devi College.
+    - Who is credited with the founding of Shri Devi College
+    - I'd like to know more about the person or organization that initiated Shri Devi College. Can you share that information
+    - Can you provide details about the history and founder of Shri Devi College
+    - who is the chair man of shri devi college
+
+- intent: principal_of
+  examples: |
+    - who is the principal of shri devi college
+    - could you provide the name of the principal of shri devi
+    - who is currently serving as principal of shri devi college
+    - do you know the principal name of shri devi college
+    - what is the name of the principal of shri devi college
+
+- intent: facilities_offered
+  examples: |
+    - what are the facilities offered in shri devi college
+    - facilities available in shri devi college
+    - what are the infrastucture and services for students in shri devi college
+    - can you say the facilities of shri devi college
+    - what amenities does shri devi college provide
+    - facilities in shri devi college
+
+- intent: faculty_members
+  examples: |
+    - who are the faculty of shri devi college
+    - the faculty of shri devi college
+    - How many faculty members are currently teaching at Shri Devi College of Engineering
+    - Can you provide information on the total number of faculty members at our college
+    - Do you know the approximate count of teaching staff in Shri Devi College of Engineering
+    - I can help you find the total faculty count. Would you like to proceed
+    - Would you like to know the number of professors, lecturers, and other faculty members at our college
+
+- intent: events_occured 
+  examples: |
+    - what are the events occured in shri devi college
+    - how are the events occured in shri devi college
+    - which are the events occured in shri devi college
+    - What are the upcoming events at Shri Devi College
+    - Can you tell me about any recent events that took place at Shri Devi College
+    - Do you have information about cultural events at Shri Devi College
+    - Are there any sports events or competitions happening at Shri Devi College
+    - I'm interested in knowing about any academic events or seminars at Shri Devi College. Can you help
+    - Tell me about the annual fest or celebrations at Shri Devi College.
+    - Is there any guest lecture or workshop scheduled at Shri Devi College
+    - Can you provide details about club activities or student events
+    - What are the significant events or achievements of Shri Devi College    
+
+- intent: hod_HOD_artificial_inteligence_AIDS_aids
+  examples: | 
+    - who is the hod of artificil intelligence and data science department
+    - name the hod of aids department
+    - who is the HOD of artificial intelligence and data science department
+    - who is the HOD of AIDS department
+    - hod of artificial intelligence and data science department
+    - HOD of artificial intelligence and data science department
+    - hod of AIDS department
+    - HOD of AIDS department
+    - who is the hod of AIDS department    
+
+- intent: HOD_hod_computer_science_CS_cs_cse_CSE
+  examples: | 
+    - who is the hod of computer science department
+    - name the hod of cse department
+    - who is the HOD of computer science depatment
+    - who is the HOD of CSE depatment
+    - hod of computer science depatment
+    - HOD of computer science department
+    - hod of CSE department
+    - HOD of CSE department
+    - who is the hod of CSE department
+    - who is the HOD of cse department 
+
+- intent: HOD_hod_electronics_communication_EC_ec
+  examples: |
+    - who is the hod of electronics communication department
+    - name the hod of ec department
+    - who is the HOD of electronics and communication department
+    - who is the HOD of EC department
+    - hod of electronics and communication department
+    - HOD of electronics and communication department
+    - hod of EC department
+    - HOD of EC department
+    - who is the hod of EC department
+    - who is the HOD of ec department 
+
+- intent: hod_HOD_electrical_electronics_eee_EEE
+  examples: |
+    - who is the hod of electrical and electronics engineering department
+    - name the hod of eee deprtment
+    - who is the HOD of electrical and electronics engineering department
+    - who is the HOD of ECE department
+    - hod of electrical and electronics department
+    - HOD of electrical and electronics department
+    - hod of EEE department
+    - HOD of EEE department
+    - who is the hod of EEE department
+    - who is the HOD of eee department
+
+- intent: HOD_hod_civil_engineering_cv_CV
+  examples: |
+    - who is the hod of civil engineering department
+    - name the hod of cv department
+    - who is the HOD of civil engineering department
+    - who is the HOD of CV department
+    - hod of civil engineering department
+    - HOD of civil engineering department
+    - hod of CV department
+    - HOD of CV department
+    - who is the hod of cv department
+    - who is the HOD of cv cepartment
+
+- intent: hod_HOD_mechanical_engineering_me_ME 
+  examples: |
+    - who is the hod of mechanical engineering
+    - name the hod of me department
+    - who is the HOD of mechanical engineering department
+    - who is the HOD of ME department
+    - hod of mechanical enginering department
+    - HOD of mechanical engineering department
+    - hod of ME department
+    - HOD of me department
+    - who is the hod of me department
+    - who is the HOD of me department 
+
+- intent: HOD_hod_information_science_ISE_IS
+  examples: |
+    - who is the hod of information science department
+    - who is the HOD of information science engineering department
+    - who is the HOD of ISE department
+    - who is the HOD of IS department
+    - hod of information science department
+    - HOD of information science department
+    - HOD of ISE dapartment
+    - hod of IS department
+    - who is the hod of IS department
+    - who is the hod of ISE department
+
+- intent: packages_offered
+  examples: |
+    - what are the highest package of shri devi college
+    - packages offered in shri devi college
+    - which are the packages of shri devi college
+    - What is the average placement package at Shri Devi College of Engineering
+    - Can you provide information about the highest placement package offered at our college
+    - Tell me about the companies that have visited for campus placements at Shri Devi College.
+    - What is the placement percentage for the last academic year at Shri Devi College of Engineering
+    - How does the college support students in securing good placement packages
+    - Can you share details about internships and co-op opportunities
+    - What are the top industries or sectors that recruit from Shri Devi College
+    - Are there any notable success stories of students' placements
+    - Do you offer placement assistance or training to students
+
+- intent: special_choose_key_feature_speciality
+  examples: |
+    - Why should I choose Shri Devi College of Engineering for my education
+    - What makes Shri Devi College stand out from other engineering colleges
+    - Can you tell me about the academic programs and specializations offered at Shri Devi College
+    - What are the key features and strengths of Shri Devi College that set it apart
+    - Do you have information about the faculty and their qualifications at Shri Devi College
+    - Can you share the placement record and career opportunities available to students at Shri Devi College
+    - Are there any scholarships or financial aid options for students
+    - Tell me about the infrastructure and facilities available at Shri Devi College.
+    - What are the research and extracurricular opportunities for students
+
+- intent: faculty_cs_cse_CS_CSE_lecturers_computer_science_teachers
+  examples: |
+    - who are the faculty of CSE department lecturers
+    - who are the cse department lectures
+    - who are the faculty of cse department
+    - who are the faculty of CSE department
+    - who are the lectures of computer science department
+    - who are the teachers of computer science department
+    - tell about the teachers of computer science department
+    - tell about the lecturers of computer science department
+
+- intent: faculty_artificial_intelligence_aids_AIDS_lecturers_teachers
+  examples: |
+    - who are the faculty of AIDS department
+    - who are the aids department lecturers
+    - who are the faculty of artificial intelligence and data science
+    - who are the faculty of aids department
+    - who are the lectures of artificial intelligence and data science
+    - who are the teachers of artificial intelligence and data science
+    - tell about the teachers of artificial intelligence and data science department
+    - tell about the lecturers of artificial intelligence and data science department  
+
+- intent: faculty_information_science_ISE_ise_lectures_teachers
+  examples: |
+    - who are the faculty of ISE department
+    - who are the IS department lectures
+    - who are the faculty of information science department
+    - who are the faculty of IS department
+    - who are the lecturers of information science department
+    - who are the teachers of information science department
+    - tell the teachers of information science department
+    - tell about the lecturers of information science department                                        
+
+- intent: faculty_mechanical_engineering_ME_lecturers_teachers
+  examples: |
+    - who are the faculty of ME departyment
+    - who are the ME department lecturers
+    - who are the lecturers of mechanical engineering department
+    - who are the faculty of mechanical engineering department
+    - tell about lecturers of mechanical engineering department
+    - tell about teachers of mechanical engineering depaertment
+    - who are the teachers of mechanical engineering department
+
+- intent: faculty_electronics_communication_EC_ec_lecturers_teachers
+  examples: |
+    - who are the faculty of EC department
+    - who are the EC department lecturers
+    - who are the lecturers of electronics and communication engineering department
+    - who are the faculty of electronics and communication department
+    - who are the teachers of electronics and communication department
+    - tell about lecturers of electronics and communication department
+    - tell about teachers of electronics and communication department
+
+- intent: faculty_electrical_electronics_EEE_eee_lecturers_teachers
+  examples: |
+    - who are the faculty of EEE department
+    - who are the EEE department lecturers
+    - who are the lecturers of electrical  and electronics department
+    - who are the faculty of electrical and electronics department
+    - who ae the teachers of electrical and electronics department
+    - tell about lecturers of electrical and electronics department
+    - tell about teachers of electrical and electronics department 
+
+- intent: companies_top_recruiters_campus_placements_hire
+  examples: |
+    - Which companies visit Shri Devi College for placements
+    - Can you list the recruiting companies at Shri Devi College of Engineering
+    - Tell me about the companies that hire students from Shri Devi College.
+    - What are some of the top recruiters at Shri Devi College for placements
+    - Which organizations have tie-ups with Shri Devi College for campus placements
+    - Provide a list of companies where Shri Devi College students have been placed.
+    - Which industries or sectors are prominent in recruiting from Shri Devi College
+    - Can you share information about the placement partners at Shri Devi College.
+    - name the companies that offer placement at shri devi college
+
+- intent: admission_process_eligibility_criteria_eligibility_criteria_scholarships
+  examples: |
+    - How can I apply for admission to Shri Devi College of Engineering
+    - What is the admission process at Shri Devi College
+    - Tell me about the eligibility criteria for admission to Shri Devi College.
+    - When do admissions open for the upcoming academic year
+    - Are there any entrance exams required for admission to Shri Devi College
+    - Can you provide information about the admission deadlines and important dates
+    - What documents are needed for the admission process
+    - Do you offer any scholarships or financial aid for students during admission
+    - What are the different ways to secure admission at Shri Devi College of Engineering
+    - Can I get admission through management quota at Shri Devi College
+    - Are there any reserved seats or quotas for specific categories of students
+    - What is the role of entrance exams in the admission process
+    - How can I apply for direct admission to a particular program
+    - Do you offer lateral entry admissions for certain courses
+    - Tell me about the criteria for merit-based and entrance-based admissions.
+    - tell me about admission in shri devi college
+    - tell about admission 
+
+- intent: fee_structure_tution_fees_additional_charges
+  examples: |
+    - What is the fee structure for course at Shri Devi College
+    - Can you provide details about tuition fees and other expenses for courses
+    - How do I find information about the fee payment schedule
+    - Do you have different fee structures for different programs or categories of students
+    - Are there any additional fees or charges I should be aware of
+    - Can you explain the payment methods and deadlines for fees
+    - Tell me about any available discounts or scholarships for tuition fees.
+    - tell about fee structure in shri devi college
+    - what is the fee in shri devi college
+    - what is the fees in dhri devi colege
+    - what is the fee structure in shri devi college  
+
+- intent: faculty_civil_engineering_CV_lecturers_teachers
+  examples: |
+    - who are the faculty of CV department
+    - who are the CV department lecturers
+    - who are the  lecturers of civil engineering department
+    - who are the faculty of civil engineering department 
+    - who are the teachers of civil engineering department
+    - tell about the teachers of civil engineering department
+    - tell about the lecturers of civil engineering department        
+
+- intent: dean_academics_HOD_hod_chemistry
+  examples: |
+    - who is the dean academics of  shri devi college
+    - who is the HOD of chemistry in shri devi college
+    - who is the hod of chimistry in shri devi college
+
+- intent: adress_location_located
+  examples: |
+    - where is shri devi college located
+    - what is location shri devi college
+    - what is the adress of shri devi college
+
+- intent: HOD_hod_physics
+  examples: |
+    - who is the HOD of physics in shri devi college
+    - who is the hod of physics in shri devi college
+
+- intent: HOD_hod_maths_mathematics
+  examples: |
+    - who is the HOD of maths in shri devi college
+    - who is the hod of mathematics in shri devi college
+
+- intent: when_established_shri_devi_college 
+  examples: |
+    - when was shri devi college established
+    - which year was shri devi college established
+
+- intent: who_established_shri_devi_college
+  examples: |
+    - who established shri devi college
+
+  

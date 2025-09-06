@@ -1,0 +1,190 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: shri_devi path
+  steps:
+  - intent: shri_devi
+  - action: utter_shri_devi
+
+- story: courses_offered path
+  steps:
+  - intent: courses_offered
+  - action: utter_courses_offered
+
+- story: founder_of path
+  steps:
+  - intent: founder_of
+  - action: utter_founder_of
+
+- story: principal_of path
+  steps:
+  - intent: principal_of
+  - action: utter_principal_of
+
+- story: facilities_offered path
+  steps:
+  - intent: facilities_offered
+  - action: utter_facilities_offered
+
+- story: faculty_members path
+  steps:
+  - intent: faculty_members
+  - action: utter_faculty_members 
+
+- story: events_occured path
+  steps:
+  - intent: events_occured
+  - action: utter_events_occured
+
+- story: hod_HOD_artificial_inteligence_AIDS_aids path
+  steps:
+  - intent: hod_HOD_artificial_inteligence_AIDS_aids
+  - action: utter_hod_HOD_artificial_inteligence_AIDS_aids
+
+- story: HOD_hod_computer_science_CS_cs_cse_CSE path
+  steps:
+  - intent: HOD_hod_computer_science_CS_cs_cse_CSE
+  - action: utter_HOD_hod_computer_science_CS_cs_cse_CSE
+
+- story: HOD_hod_electronics_communication_EC_ec path
+  steps:
+  - intent: HOD_hod_electronics_communication_EC_ec
+  - action: utter_HOD_hod_electronics_communication_EC_ec
+
+- story: hod_HOD_electrical_electronics_eee_EEE path
+  steps:
+  - intent: hod_HOD_electrical_electronics_eee_EEE
+  - action: utter_hod_HOD_electrical_electronics_eee_EEE
+
+- story: HOD_hod_civil_engineering_cv_CV path
+  steps:
+  - intent: HOD_hod_civil_engineering_cv_CV
+  - action: utter_HOD_hod_civil_engineering_cv_CV
+
+- story: hod_HOD_mechanical_engineering_me_ME path
+  steps:
+  - intent: hod_HOD_mechanical_engineering_me_ME
+  - action: utter_hod_HOD_mechanical_engineering_me_ME
+
+- story: HOD_hod_information_science_ISE_IS path
+  steps:
+  - intent: HOD_hod_information_science_ISE_IS
+  - action: utter_HOD_hod_information_science_ISE_IS
+
+- story: packages_offered path
+  steps:
+  - intent: packages_offered
+  - action: utter_packages_offered
+
+- story: special_choose_key_feature_speciality path
+  steps:
+  - intent: special_choose_key_feature_speciality
+  - action: utter_special_choose_key_feature_speciality
+
+- story: faculty_cs_cse_CS_CSE_lecturers_computer_science_teachers path
+  steps:
+  - intent: faculty_cs_cse_CS_CSE_lecturers_computer_science_teachers
+  - action: utter_faculty_cs_cse_CS_CSE_lecturers_computer_science_teachers
+
+- story: faculty_artificial_intelligence_aids_AIDS_lecturers_teachers path
+  steps:
+  - intent: faculty_artificial_intelligence_aids_AIDS_lecturers_teachers
+  - action: utter_faculty_artificial_intelligence_aids_AIDS_lecturers_teachers
+
+- story: faculty_information_science_ISE_ise_lectures_teachers path
+  steps:
+  - intent: faculty_information_science_ISE_ise_lectures_teachers
+  - action: utter_faculty_information_science_ISE_ise_lectures_teachers
+
+- story: faculty_mechanical_engineering_ME_lecturers_teachers path
+  steps:
+  - intent: faculty_mechanical_engineering_ME_lecturers_teachers
+  - action: utter_faculty_mechanical_engineering_ME_lecturers_teachers
+
+- story: faculty_electronics_communication_EC_ec_lecturers_teachers path
+  steps:
+  - intent: faculty_electronics_communication_EC_ec_lecturers_teachers
+  - action: utter_faculty_electronics_communication_EC_ec_lecturers_teachers             
+
+- story: faculty_electrical_electronics_EEE_eee_lecturers_teachers path 
+  steps:
+  - intent: faculty_electrical_electronics_EEE_eee_lecturers_teachers 
+  - action: utter_faculty_electrical_electronics_EEE_eee_lecturers_teachers
+
+- story: companies_top_recruiters_campus_placements_hire path 
+  steps:
+  - intent: companies_top_recruiters_campus_placements_hire 
+  - action: utter_companies_top_recruiters_campus_placements_hire
+
+- story: admission_process_eligibility_criteria_eligibility_criteria_scholarships path
+  steps:
+  - intent: admission_process_eligibility_criteria_eligibility_criteria_scholarships
+  - action: utter_admission_process_eligibility_criteria_eligibility_criteria_scholarships
+
+- story: fee_structure_tution_fees_additional_charges path
+  steps:
+  - intent: fee_structure_tution_fees_additional_charges
+  - action: utter_fee_structure_tution_fees_additional_charges
+
+- story: faculty_civil_engineering_CV_lecturers_teachers path
+  steps:
+  - intent: faculty_civil_engineering_CV_lecturers_teachers
+  - action: utter_faculty_civil_engineering_CV_lecturers_teachers  
+
+- story: dean_academics_HOD_hod_chemistry path
+  steps:
+  - intent: dean_academics_HOD_hod_chemistry
+  - action: utter_dean_academics_HOD_hod_chemistry
+
+- story: adress_location_located path
+  steps:
+  - intent: adress_location_located
+  - action: utter_adress_location_located
+
+- story: HOD_hod_maths_mathematics path
+  steps:
+  - intent: HOD_hod_maths_mathematics
+  - action: utter_HOD_hod_maths_mathematics
+
+- story: a_b_c_d_e_f_g_h_j_k_l_m_i_n_o_p_q_r_s_t_u_v_w_x_y_z path
+  steps:
+  - intent: a_b_c_d_e_f_g_h_j_k_l_m_i_n_o_p_q_r_s_t_u_v_w_x_y_z
+  - action: utter_a_b_c_d_e_f_g_h_j_k_l_m_i_n_o_p_q_r_s_t_u_v_w_x_y_z
+
+- story: when_established_shri_devi_college path
+  steps:
+  - intent: when_established_shri_devi_college 
+  - action: utter_when_established_shri_devi_college 
+
+- story: who_established_shri_devi_college path
+  steps:
+  - intent: who_established_shri_devi_college
+  - action: utter_who_established_shri_devi_college
